@@ -3,7 +3,7 @@ title: 'Access to Health Facilities from IDPs'
 author: 'Brian Mc Donald'
 subtitle: 'Using computational approaches for service access to compare travel times to health facilities'
 date: '7-Feb-2025'
-abstract: 'The abstract will go here...'
+abstract: 'TODO: The abstract will go here...'
 # doi: 'test'
 title-block-banner: '#0035a0'
 output-file: index
@@ -20,81 +20,125 @@ format:
             - default
 ---
 
+::: {.callout-caution}
+Note that this research is a still a working draft and subject to change.
+:::
+
 # Introduction
 
-*How humanitarians estimate travel time*
+Understanding what services exist, where they are, and the barriers to their use is important information to organizations and authorities providing support to displaced communities. Understanding how far away the service is, and how long it takes to travel there is part of this.
 
-*Travel time is a more prominent indicator now due to JIAF*
+*Travel time to services* indicators are commonly seen in humanitarian assessments, such as the Multi-Sectoral Location Assessments (MSLA) by IOM's DTM, in household Multi-Sectoral Needs Assessments (MSNAs) and were a feature of the core indicator library in the first version of the Joint Interagency Analysis Framework (JIAF).
 
-*Travel time is one small component of service access*
+While important, it should be noted that *travel time* alone is not sufficient to fully understand access service access in an area. Factors such as appropriateness, affordability, quality and accessibility play a big role in fully understanding the barriers to service.
 
-*Advances in health facility data, DTM and OSM*
+In the past, humanitarian actors have relied on key-informant and household surveys to answer questions on travel time to service. However, improvements in data availability, primarily road network data from OpenStreet Map, facility data from OSM, Healthsites.io and WHO HERAMS, and computational tools such as OMSNX have opened up new possibilities for measuring travel time. 
 
-*Computational approaches to service access*
-
-*Building upon previous work with Manon*
+This paper explores these methods and proposes how to apply them to improve crisis decision-making, using Mozambique as a case-study. The work here is a continuation of an initial pilot conducted by Brian Mc Donald and Manon Jones as part of IOM's Camp Coordination and Camp Management unit.
 
 # Objectives
 
-- Compare [service](https://google.com) access measurement via KI and computational approaches
-- Utilize computational approaches to quality check key informant data.
-- Identify priority locations to investigate barriers other than travel time 
-- Reproducible approach that can be systematized
+The objectives of this paper are four-fold:
+
+- To compare service travel time estimates gathered though key-informant interviews, against travel time estimates derived from computational approaches.
+
+- To utilize computational approaches to validate or triangulate key-informant travel time data, to improve data collection process.
+
+- To identify priority locations to investigate barriers other than travel time.
+
+- And finally, to develop a tool than can be incorporated into existing data collection systems to improve data quality and provide additional analytical insight for humanitarian actors.
 
 # Methodology
-- Overview of sites, facilities and combined
-- Focus on 1 country Mozambique
-- Get IDP location data, health facility data
+
+The steps of this analysis focus specifically in the example of Mozambique and are as follows:
+
+1. Gathering the required data - street network data from Open Street Maps; Internally Displaced Population (IDP) data from IOM's DTM that includes location information, IDP counts and health facility travel time estimates; health facility location data from Healthsites.io (Open Street Map) or WHO's HERAMS; and optionally, Digital Elevation Model (DEM) data to better inform travel speed and time estimates.
+
+2. Using the above data to identify the nearest heath facility to each IDP sites.
+
+3. Calculate the route between each site and its closest health facility, along with the routes distance and travel time estimates.
+
+4. Compare computed travel times across both the key informant responses and the computed times to identify patterns.
+
 
 # Analysis
-## Mandruzi IDP site
-Map of IDP site, health sites and route to nearest facility.
-Comparing to KI
+We chose a individual site to illustrate the analytical steps involved in the process. Mandruzi was chosen due to it's proximity to Beira, close to a large town - an area with with significant road networks mapped on OSM and with a number of health facilities in close proximity to the IDP site, in which to test the approach.
 
+## Mandruzi IDP site
+Mandruzi IDP site is situated on the south-west edge of Dondo, a small town 35 km northwest of Beira.
+
+According to the data from OSM, there are 5 health facilities in the Dondo area: Centro de Saude de Macharote, Centre de Saude de Dondo, Centro de Saude de Lusalite, Centro de Saude de Nhaimanga and Centro de Saude de Canhandula.
 
 ![The closest health facility to Mandruzi is Centro de Saude de Dondo](../notebooks/figures/moz-static-focus.svg){#fig-static fig-align="left" width=100%}
+
+Using OSMNX, we calculate that the closest health facility to Mandruzi is Centro de Saude de Dondo, 4,049 metres distance or an estimated 49 minutes walk noth of the site. From the map, we see that in the case of Mandruzi, it is a similar distance, albeit slightly further to both Macharote and Lusalite.
 
 
 ::: {#fig-dynamic}
 
 <iframe width=100% height=600px src="../notebooks/figures/moz-dynamic-mandruzi.html"></iframe>
 Mandruzi is approx. 4km (49mins walk) to Centro de Saude de Dondo *(browse and measure the route in the interactive map)*
+
 :::
 
-## Spatial distribution of IDP sites and Health Facilities
+## All IDP sites
+Expanding this approach to all IDP sites, we can see in the map below, all IDP sites, all health facilities and the routes between each IDP site and its closest health facility.
+
+::: {#fig-dynamic2}
+
 <iframe width=100% height=600px src="../notebooks/figures/moz-dynamic-all.html"></iframe>
 Browse all IDP sites, health facilities and routes to the nearest health facility
 
-## Distribution of computed travel times
+:::
+
+## Distribution of travel times
+
 *histogram of computed times...*
+
 ![The median travel time to a health facility is 128 minutes](../notebooks/figures/moz-static-hist-computed.svg){#fig-static fig-align="left" width=100%}
 
 
 *histogram of KI times...*
 
+![KI responses were limited to four time periods](../notebooks/figures/moz-static-hist-ki.svg){#fig-static fig-align="left" width=100%}
+
 ### Comparison against KI responses
-..
+
 *how many sites have different computed times to KI times?*
 
+![Comparing KI responses to computed times](../notebooks/figures/moz-static-bar-comparison.svg){#fig-static fig-align="left" width=100%}
+
 ## Patterns of variance
-..
+
 *what are the potential explanations as to why this variance exists?*
 
 ### QC - enumerators
-...
+
 *do some enumerators have more responses that differ from the computed travel time than others? (flagging potential issues for better training or quality control)*
 
 ### Spatial patterns
-*is there any spatial clustering of sites with a mismatch? This could be a flag to highlight areas where barriers other than travel time maybe be a key factor*
+
+*is there any spatial clustering of sites with a mismatch? 
+This could be a flag to highlight areas where barriers other than travel time maybe be a key factor*
 list of sites to further examine barriers
 
+::: {#fig-dynamic}
+
+<iframe width=100% height=600px src="../notebooks/figures/moz-dynamic-match.html"></iframe>
+There are clusters of sites near Quilimane and west of Guara-Guara that are mostly mismatched*
+
+:::
+
 # Findings
-Ask travel time in minutes, with inclusion of mode.
-Check for patterns by KI which may indicate QC issues.
+
+- Ask travel time in minutes, with inclusion of mode.
+-  for patterns by KI which may indicate QC issues.
 
 # Limitations & next steps
-Road networks
-Types
-Elevation
-Systematizing
+
+- Road network completeness and limitations
+- Completeness of facility data
+- Types of facilities, static v mobile
+- Elevation data
+- Systematizing 
 

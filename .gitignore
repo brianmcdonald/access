@@ -8,7 +8,8 @@ src/.env
 data/external/
 data/interim/
 data/processed/
-data/raw/               
+data/raw/          
+# also added cache     
 notebooks/cache/
 
 

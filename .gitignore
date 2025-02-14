@@ -1,4 +1,5 @@
 
+
 # Custom ignores
 .DS_Store
 .pixi
@@ -7,8 +8,8 @@ src/.env
 data/external/
 data/interim/
 data/processed/
-data/raw/
-
+data/raw/               
+notebooks/cache/
 
 
 # Byte-compiled / optimized / DLL files

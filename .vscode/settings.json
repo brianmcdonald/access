@@ -1,0 +1,13 @@
+{
+    "livePreview.defaultPreviewPath": "/quarto/index.html",
+    "spellright.language": [
+        "en"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext",
+        "python",
+        "quarto"
+    ]
+}

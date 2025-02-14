@@ -1,0 +1,101 @@
+---
+title: 'Access to Health Facilities from IDPs'
+author: 'Brian Mc Donald'
+subtitle: 'Using computational approaches for service access to compare travel times to health facilities'
+date: '7-Feb-2025'
+abstract: 'The abstract will go here...'
+# doi: 'test'
+title-block-banner: '#0035a0'
+output-file: index
+# output-dir: /docs
+# lightbox: true
+embed-resources: true
+number-sections: false
+fig-cap-location: margin
+
+format:
+    html:
+        toc: true
+        theme:
+            - default
+---
+
+# Introduction
+
+*How humanitarians estimate travel time*
+
+*Travel time is a more prominent indicator now due to JIAF*
+
+*Travel time is one small component of service access*
+
+*Advances in health facility data, DTM and OSM*
+
+*Computational approaches to service access*
+
+
+*Building upon previous work with Manon*
+
+# Objectives
+
+- Compare [service](https://google.com) access measurement via KI and computational approaches
+- Utilize computational approaches to quality check key informant data.
+- Identify priority locations to investigate barriers other than travel time 
+- Reproducible approach that can be systematized
+
+# Methodology
+- Overview of sites, facilities and combined
+- Focus on 1 country Mozambique
+- Get IDP location data, health facility data
+
+# Analysis
+## Mandruzi IDP site
+Map of IDP site, health sites and route to nearest facility.
+Comparing to KI
+
+
+![The closest health facility to Mandruzi is Centro de Saude de Dondo](../notebooks/figures/moz-static-focus.svg){#fig-static fig-align="left" width=100%}
+
+
+::: {#fig-dynamic}
+
+<iframe width=100% height=600px src="../notebooks/figures/moz-dynamic-mandruzi.html"></iframe>
+Mandruzi is approx. 4km (49mins walk) to Centro de Saude de Dondo *(browse and measure the route in the interactive map)*
+:::
+
+## Spatial distribution of IDP sites and Health Facilities
+<iframe width=100% height=600px src="../notebooks/figures/moz-dynamic-all.html"></iframe>
+Browse all IDP sites, health facilities and routes to the nearest health facility
+
+## Distribution of computed travel times
+*histogram of computed times...*
+![The median travel time to a health facility is 128 minutes](../notebooks/figures/moz-static-hist-computed.svg){#fig-static fig-align="left" width=100%}
+
+
+*histogram of KI times...*
+
+### Comparison against KI responses
+..
+*how many sites have different computed times to KI times?*
+
+## Patterns of variance
+..
+*what are the potential explanations as to why this variance exists?*
+
+### QC - enumerators
+...
+*do some enumerators have more responses that differ from the computed travel time than others? (flagging potential issues for better training or quality control)*
+
+### Spatial patterns
+*is there any spatial clustering of sites with a mismatch? This could be a flag to highlight areas where barriers other than travel time maybe be a key factor*
+list of sites to further examine barriers
+
+# Findings
+Ask travel time in minutes, with inclusion of mode.
+Check for patterns by KI which may indicate QC issues.
+
+# Limitations & next steps
+Road networks
+Types
+Elevation
+Systematizing
+

@@ -7,7 +7,7 @@ abstract: 'The abstract will go here...'
 # doi: 'test'
 title-block-banner: '#0035a0'
 output-file: index
-# output-dir: /docs
+output-dir: '../docs'
 # lightbox: true
 embed-resources: true
 number-sections: false
@@ -31,7 +31,6 @@ format:
 *Advances in health facility data, DTM and OSM*
 
 *Computational approaches to service access*
-
 
 *Building upon previous work with Manon*
 

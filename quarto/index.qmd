@@ -3,7 +3,7 @@ title: 'Access to Health Facilities from IDP sites'
 author: 'Brian Mc Donald'
 subtitle: 'Using computational approaches to improve estimations of travel times from IDP sites to health facilities'
 date: '15-Feb-2025'
-abstract: 'This paper explores the use of computational approaches to estimate travel times from Internally Displaced Persons (IDP) sites to health facilities, using Mozambique as a case study. By comparing these computational estimates with key-informant data, we aim to validate and improve data collection processes. The study identifies priority locations for further investigation of barriers to access and proposes a tool to enhance data quality and provide analytical insights for humanitarian actors. The findings highlight the potential of computational methods to complement traditional survey approaches and improve crisis decision-making.'
+abstract: 'This paper explores the use of computational approaches to estimate travel times from Internally Displaced Persons (IDP) sites to health facilities, using Mozambique as a case study. By comparing these computational estimates with key-informant data, we aim to validate and improve data collection processes. The study identifies priority locations for further investigation of barriers to access and proposes a tool to enhance data quality and provide analytical insights for humanitarian actors. The findings highlight the potential of computational methods to complement traditional survey approaches and inform humanitarian decision-making and planning.'
 # doi: 'test'
 title-block-banner: '#0035a0'
 output-file: index
@@ -62,7 +62,7 @@ The steps of this analysis focus specifically in the example of Mozambique and a
 
 4. Compare computed travel times across both the key informant responses and the computed times to identify patterns.
 
-[^2]: The DTM dataset used is from DTMS Assessment Round 20 from 2022. This was the same dataset used in the initial pilot work .
+[^2]: The DTM dataset used is from DTM's Assessment Round 20 from 2022. This was the same dataset used in the initial pilot work .
 
 
 # Analysis
@@ -75,7 +75,7 @@ According to the data from OSM, there are 5 health facilities in the Dondo area:
 
 ![The closest health facility to Mandruzi is Centro de Saude de Dondo](../notebooks/figures/moz-static-focus.svg){#fig-static fig-align="left" width=100%}
 
-Using OSMNX, we calculate that the closest health facility to Mandruzi is Centro de Saude de Dondo, 4,049 metres distance or an estimated 49 minutes walk noth of the site. From the map, we see that in the case of Mandruzi, it is a similar distance, albeit slightly further to both Macharote and Lusalite.
+Using OSMNX, we calculate that the closest health facility to Mandruzi is Centro de Saude de Dondo, 4,049 metres distance or an estimated 49 minutes walk north of the site. From the map, we see that in the case of Mandruzi, it is a similar distance, albeit slightly further to both Macharote and Lusalite.
 
 
 ::: {#fig-dynamic}
@@ -97,19 +97,17 @@ Browse all IDP sites, health facilities and routes to the nearest health facilit
 
 ## Distribution of travel times
 
-The following chart shows the distribution of computed travel times from all 80 IDP sites, in segments of 15 minutes
+The following chart shows the distribution of computed travel times from all 80 IDP sites, in segments of 15 minutes.
 
 ![The median travel time to a health facility is 128 minutes](../notebooks/figures/moz-static-hist-computed.svg){#fig-hist-computed fig-align="left" width=100%}
 
-The following chart shows the distribution of travel time answers from the key informant responses. The segments in this case are the 4 response options available for the question 
+The following chart shows the distribution of travel time answers from the key informant responses. The segments in this case are the 4 response options available for the question .
 
-*'How long does it take to reach the nearest health facility from the site?'*
 
 ![KI responses were limited to four time periods](../notebooks/figures/moz-static-hist-ki.svg){#fig-hist-ki fig-align="left" width=100%}
 
 ### Comparison against KI responses
 
-*how many sites have different computed times to KI times?*
 
 Only 34 (43%) of the 80 sites had computed travel times that matched the ranges provided by the key informants.
 
@@ -117,18 +115,13 @@ Only 34 (43%) of the 80 sites had computed travel times that matched the ranges 
 
 ## Patterns of variance
 
-*what are the potential explanations as to why this variance exists?*
+
 
 ### Quality Control
-
-*do some enumerators have more responses that differ from the computed travel time than others? (flagging potential issues for better training or quality control)*
 
 Public site assessment data sources don't contain personal information of enumerators or unique identifiers that would allow us to check if travel time responses gathered by some enumerators tend to have a higher rate of mismatches to computed time, compared to other enumerators. The raw collected data however would feature this data and allow field teams to explore any correlation and address the causes such as enumerator training or performance
 
 ### Spatial patterns
-
-*is there any spatial clustering of sites with a mismatch?*
-
 
 In this instance we see two significant clusters of sites where the KI and computed times do not match, one near Quilimane and another to the west of Guara-Guara. This this provides us with priority areas in which to further explore the reasons behind the mismatches and the barriers to access. From a data perspective, these spatial clusters of mismatches may be as a result of missing health facility data. The availability of such data in OSM can vary significantly from one area to the next. Areas prioritized for mapping through the [HOT OSM Tasking Manager](https://tasks.hotosm.org) for instance tend to have higher coverage, while other areas maybe see far less of their health facilities mapped.
 
@@ -164,6 +157,3 @@ An underlying assumption of this approach is use of static facilities as a proxy
 The above analysis uses a fixed walking speed for the travel time calculations. This does not incorporate speed variations due to elevation inclines or other factors such as road surface. The OSMNX tool can be configured to incorporate elevation data and we hope to use it in future versions of the analysis.
 
 Finally, a benefit of this computational approach, is that it can be incorporated into humanitarian organizations systems and tools, taking advantage of the increased use of APIs, to produce scalable and semi automated products.
-
-
-

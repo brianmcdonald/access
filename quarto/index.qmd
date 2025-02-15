@@ -1,14 +1,14 @@
 ---
 title: 'Access to Health Facilities from IDP sites'
 author: 'Brian Mc Donald'
-subtitle: 'Using computational approaches to improve estimations of travel times to health facilities'
-date: '7-Feb-2025'
-abstract: 'TODO: The abstract will go here...'
+subtitle: 'Using computational approaches to improve estimations of travel times from IDP sites to health facilities'
+date: '15-Feb-2025'
+abstract: 'This paper explores the use of computational approaches to estimate travel times from Internally Displaced Persons (IDP) sites to health facilities, using Mozambique as a case study. By comparing these computational estimates with key-informant data, we aim to validate and improve data collection processes. The study identifies priority locations for further investigation of barriers to access and proposes a tool to enhance data quality and provide analytical insights for humanitarian actors. The findings highlight the potential of computational methods to complement traditional survey approaches and improve crisis decision-making.'
 # doi: 'test'
 title-block-banner: '#0035a0'
 output-file: index
 output-dir: '../docs'
-# lightbox: true
+lightbox: true
 embed-resources: true
 number-sections: false
 fig-cap-location: margin
@@ -28,13 +28,15 @@ Note that this research is a still a working draft and subject to change.
 
 Understanding what services exist, where they are, and the barriers to their use is important information to organizations and authorities providing support to displaced communities. Understanding how far away the service is, and how long it takes to travel there is part of this.
 
-*Travel time to services* indicators are commonly seen in humanitarian assessments, such as the Multi-Sectoral Location Assessments (MSLA) by IOM's DTM, in household Multi-Sectoral Needs Assessments (MSNAs) and were a feature of the core indicator library in the first version of the Joint Interagency Analysis Framework (JIAF).
+*Travel time to services* indicators are commonly seen in humanitarian assessments, such as the Multi-Sectoral Location Assessments (MSLA) by [IOM's DTM](https://dtm.iom.int), in household Multi-Sectoral Needs Assessments (MSNAs) and were a feature of the core indicator library in the first version of the [Joint Interagency Analysis Framework (JIAF)](https://knowledge.base.unocha.org/wiki/spaces/hpc/pages/3992944652/JIAF).[^1]
 
 While important, it should be noted that *travel time* alone is not sufficient to fully understand access service access in an area. Factors such as appropriateness, affordability, quality and accessibility play a big role in fully understanding the barriers to service.
 
-In the past, humanitarian actors have relied on key-informant and household surveys to answer questions on travel time to service. However, improvements in data availability, primarily road network data from OpenStreet Map, facility data from OSM, Healthsites.io and WHO HERAMS, and computational tools such as OMSNX have opened up new possibilities for measuring travel time. 
+In the past, humanitarian actors have relied on key-informant and household surveys to answer questions on travel time to service. However, improvements in data availability, primarily road network data from [OpenStreet Map](https://www.openstreetmap.org), facility data from OSM, [Healthsites.io](https://healthsites.io) and WHO's [HERAMS](https://herams.org/session/create), and computational tools such as [OSMNX](https://osmnx.readthedocs.io/en/stable/user-reference.html) have opened up new possibilities for measuring travel time. 
 
-This paper explores these methods and proposes how to apply them to improve crisis decision-making, using Mozambique as a case-study. The work here is a continuation of an initial pilot conducted by Brian Mc Donald and Manon Jones as part of IOM's Camp Coordination and Camp Management unit.
+This paper explores these methods and proposes how to apply them to improve crisis decision-making, using Mozambique as a case-study. The work here is a continuation of an initial pilot conducted by Manon Jones and Brian Mc Donald as part of IOM's Camp Coordination and Camp Management unit.
+
+[^1]: While the core indicator library is no longer a feature in JIAF2.0, indicators measuring service travel time typically remain part of the overall analyses.
 
 # Objectives
 
@@ -52,13 +54,15 @@ The objectives of this paper are four-fold:
 
 The steps of this analysis focus specifically in the example of Mozambique and are as follows:
 
-1. Gathering the required data - street network data from Open Street Maps; Internally Displaced Population (IDP) data from IOM's DTM that includes location information, IDP counts and health facility travel time estimates; health facility location data from Healthsites.io (Open Street Map) or WHO's HERAMS; and optionally, Digital Elevation Model (DEM) data to better inform travel speed and time estimates.
+1. Gathering the required data - street network data from Open Street Maps; Internally Displaced Population (IDP) data from IOM's DTM that includes location information, IDP counts and health facility travel time estimates; health facility location data from Healthsites.io (Open Street Map) or WHO's HERAMS; and optionally, Digital Elevation Model (DEM) data to better inform travel speed and time estimates.[^2]
 
 2. Using the above data to identify the nearest heath facility to each IDP sites.
 
 3. Calculate the route between each site and its closest health facility, along with the routes distance and travel time estimates.
 
 4. Compare computed travel times across both the key informant responses and the computed times to identify patterns.
+
+[^2]: The DTM dataset used is from DTMS Assessment Round 20 from 2022. This was the same dataset used in the initial pilot work .
 
 
 # Analysis
@@ -93,14 +97,15 @@ Browse all IDP sites, health facilities and routes to the nearest health facilit
 
 ## Distribution of travel times
 
-*histogram of computed times...*
+The following chart shows the distribution of computed travel times from all 80 IDP sites, in segments of 15 minutes
 
-![The median travel time to a health facility is 128 minutes](../notebooks/figures/moz-static-hist-computed.svg){#fig-static fig-align="left" width=100%}
+![The median travel time to a health facility is 128 minutes](../notebooks/figures/moz-static-hist-computed.svg){#fig-hist-computed fig-align="left" width=100%}
 
+The following chart shows the distribution of travel time answers from the key informant responses. The segments in this case are the 4 response options available for the question 
 
-*histogram of KI times...*
+*'How long does it take to reach the nearest health facility from the site?'*
 
-![KI responses were limited to four time periods](../notebooks/figures/moz-static-hist-ki.svg){#fig-static fig-align="left" width=100%}
+![KI responses were limited to four time periods](../notebooks/figures/moz-static-hist-ki.svg){#fig-hist-ki fig-align="left" width=100%}
 
 ### Comparison against KI responses
 
@@ -108,7 +113,7 @@ Browse all IDP sites, health facilities and routes to the nearest health facilit
 
 Only 34 (43%) of the 80 sites had computed travel times that matched the ranges provided by the key informants.
 
-![Comparing KI responses to computed times](../notebooks/figures/moz-static-bar-comparison.svg){#fig-static fig-align="left" width=100%}
+![Comparing KI responses to computed times](../notebooks/figures/moz-static-bar-comparison.svg){#fig-bar-comparison fig-align="left" width=100%}
 
 ## Patterns of variance
 
@@ -122,38 +127,43 @@ Public site assessment data sources don't contain personal information of enumer
 
 ### Spatial patterns
 
-*is there any spatial clustering of sites with a mismatch? 
-This could be a flag to highlight areas where barriers other than travel time maybe be a key factor*
-list of sites to further examine barriers
+*is there any spatial clustering of sites with a mismatch?*
 
-In this instance we see two significant clusters of sites where the KI and computed times do not match, one near Quilimane and another to the west of Guara-Guara. This this provides us with priority areas in which to further explore the reasons behind the mismatches and the barriers to access. From a data perspective, these spatial clusters of mismatches may be as a result of missing health facility data. The availability of such data in OSM can vary significantly from one area to the next. Areas prioritized for mapping through the HOT OSM Tasking Manager for instance tend to have higher coverage, while other areas maybe see far less of their health facilities mapped.
 
-Other access factors, not related to travel time can also play a signifant role in these mismatches, for example in areas with conflict of inter communal tensions, certain facilities, while closer, may not be seen as safe to access, appropriate for the displaced community or even affordable to use. This tool can provide a triage and targeting function to guide efforts to better understand the barriers.
+In this instance we see two significant clusters of sites where the KI and computed times do not match, one near Quilimane and another to the west of Guara-Guara. This this provides us with priority areas in which to further explore the reasons behind the mismatches and the barriers to access. From a data perspective, these spatial clusters of mismatches may be as a result of missing health facility data. The availability of such data in OSM can vary significantly from one area to the next. Areas prioritized for mapping through the [HOT OSM Tasking Manager](https://tasks.hotosm.org) for instance tend to have higher coverage, while other areas maybe see far less of their health facilities mapped.
+
+Other access factors, not related to travel time can also play a significant role in these mismatches, for example in areas with conflict of inter communal tensions, certain facilities, while closer, may not be seen as safe to access, appropriate for the displaced community or even affordable to use. This tool can provide a triage and targeting function to guide efforts to better understand the barriers.
 
 ::: {#fig-dynamic}
 
 <iframe width=100% height=600px src="../notebooks/figures/moz-dynamic-match.html"></iframe>
-There are clusters of sites near Quilimane and west of Guara-Guara that are mostly mismatched*
+There are clusters of sites near Quilimane and west of Guara-Guara that are mostly mismatched
 
 :::
 
 # Findings
 
-The use of computational approaches alongside key informant approaches can improve the quality of travel time to services data. It can also provide a solid base in which to target areas to bettter understand barriers to access that are beyond basic physical travel time.
+The use of computational approaches alongside key informant approaches can improve the quality of travel time to services data. It can also provide a solid base in which to target areas to better understand barriers to access that are beyond basic physical travel time.
 
 When including questions on travel time to a service in questionnaires, the question should ask for a specific figure (in minutes with the inclusion of mode of travel, or distance) instead of pre configured ranges such as what was shown in the above dataset. The reason for this is to provide more accurate data, reducing bias, while still allowing for the data to be converted in to ranges at a later date. Two illustrations of this are:
 
-- where travel time to a health facility for a number of sites is approx. 15-16 minutes, these sites, despite similar travel time, will fall in different categories and if these categores are used as criteria for the targeting of interventions, this miniscule difference may result in an outsize difference in terms of response.
+- where travel time to a health facility for a number of sites is approximately 15-16 minutes, these sites, despite similar travel times, will fall into different categories. If these categories are used as criteria for targeting interventions, this minuscule difference may result in a disproportionately large difference in terms of response.
 
-- for elderly or people with physical disabilities, the difference in approximated travel time of 1 and 15mins can be significant and can mean the difference between whether or not the person can actually use the service or not. Asking the question as ranges as opposed to distinct value limits its use in such cases due to the limited granularity of the response.
+- for elderly people or those with physical disabilities, the difference in approximated travel time of 1 and 15 minutes can be significant and can determine whether or not the person can actually use the service. Asking the question as ranges as opposed to distinct value limits its use in such cases due to the limited granularity of the response.
 
 
 
 # Limitations & next steps
 
-- Road network completeness and limitations
-- Completeness of facility data
-- Types of facilities, static v mobile
-- Elevation data
-- Systematizing 
+The computational approach relies on having good quality and complete road and path network data. Sparse or inconsistent levels of road network can undermine or skew the analysis. Another network issue is that in many places walking to services is not done along recognizable roads or pathways but through open areas. In these cases, the approaches dependency on network data is a limiting factor of the analysis.
+
+While initiatives like OSM, Healthsites.io and HERAMS have greatly improved the quantity and quality of health facility data, for many countries and even within countries, the available data in insufficient to support meaningful analysis. In addition to this, the computational approach may be of limited use in dynamic contexts such as disaster response, where the relatively static facilities data is not able to respond to local dynamics where facilities may close or become temporarily in operational. To help address this shortcoming, the required datasets should be linked to API driven systems to ensure that the most recent datasets for a given area are used rather than older static dataset that are not updated. Continued investments in initiatives such as OSM and HERAMS are also important.
+
+An underlying assumption of this approach is use of static facilities as a proxy for service delivery points. Looking at facilities as the sole points of service delivery can significantly under represent services, as we can see from @fig-bar-comparison. Many services are provided through mobile modalities. To better address this gap, additional data sources for mobile service delivery should be incorporated into the analysis.
+
+The above analysis uses a fixed walking speed for the travel time calculations. This does not incorporate speed variations due to elevation inclines or other factors such as road surface. The OSMNX tool can be configured to incorporate elevation data and we hope to use it in future versions of the analysis.
+
+Finally, a benefit of this computational approach, is that it can be incorporated into humanitarian organizations systems and tools, taking advantage of the increased use of APIs, to produce scalable and semi automated products.
+
+
 

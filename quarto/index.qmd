@@ -1,5 +1,5 @@
 ---
-title: 'Access to Health Facilities from IDP sites'
+title: 'Access to Health Facilities from IDP Sites'
 author: 'Brian Mc Donald'
 subtitle: 'Using computational approaches to improve estimations of travel times from IDP sites to health facilities'
 date: '15-Feb-2025'

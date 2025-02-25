@@ -28,7 +28,10 @@ format:
     embed-resources: true
     number-sections: true
     fig-cap-location: margin
-  typst: default
+  typst: 
+    toc: true
+    section-numbering: 1.1.a
+    columns: 2
   # epub: default
   # ipynb: default
   # revealjs: 

@@ -79,21 +79,32 @@ According to the data from OSM, there are 5 health facilities in the Dondo area:
 Using OSMNX, we calculate that the closest health facility to Mandruzi is Centro de Saude de Dondo, 4,049 metres distance or an estimated 49 minutes walk north of the site. From the map, we see that in the case of Mandruzi, it is a similar distance, albeit slightly further to both Macharote and Lusalite.
 
 
-::: {#fig-dynamic}
+::: {.content-visible when-format="typst"}
+![Mandruzi is approx. 4km (49mins walk) to Centro de Saude de Dondo](figures/fig2-screenshot.png){#fig-dynamic fig-align="left" width=100%}
+:::
 
+:::{.content-visible unless-format="typst"}
+:::: {#fig-dynamic}
 <iframe width=100% height=600px src="figures/moz-dynamic-mandruzi.html"></iframe>
 Mandruzi is approx. 4km (49mins walk) to Centro de Saude de Dondo *(browse and measure the route in the interactive map)*
 
+::::
 :::
+
+
+
 
 ## All IDP sites
 Expanding this approach to all IDP sites, we can see in the map below, all IDP sites, all health facilities and the routes between each IDP site and its closest health facility.
 
-::: {#fig-dynamic2}
-
+::: {.content-visible when-format="typst"}
+![A screenshot of all sites](figures/fig3-screenshot.png){#fig-dynamic2 fig-align="left" width=100%}
+:::
+:::{.content-visible when-format="html"}
+:::: {#fig-dynamic2}
 <iframe width=100% height=600px src="figures/moz-dynamic-all.html"></iframe>
 Browse all IDP sites, health facilities and routes to the nearest health facility
-
+::::
 :::
 
 ## Distribution of travel times
@@ -128,11 +139,17 @@ In this instance we see two significant clusters of sites where the KI and compu
 
 Other access factors, not related to travel time can also play a significant role in these mismatches, for example in areas with conflict of inter communal tensions, certain facilities, while closer, may not be seen as safe to access, appropriate for the displaced community or even affordable to use. This tool can provide a triage and targeting function to guide efforts to better understand the barriers.
 
-::: {#fig-dynamic}
 
+
+:::{.content-visible when-format="html"}
+:::: {#fig-dynamic3}
 <iframe width=100% height=600px src="figures/moz-dynamic-match.html"></iframe>
 There are clusters of sites near Quilimane and west of Guara-Guara that are mostly mismatched
-
+::::
+:::
+::: {.content-visible when-format="typst"}
+![There are clusters of sites near Quilimane and west of Guara-Guara that are mostly mismatched
+](figures/figmatch-screenshot.png){#fig-dynamic3 fig-align="left" width=100%}
 :::
 
 # Findings

@@ -18,6 +18,7 @@ manuscript:
 format:
   html:
     toc: true
+    number-depth: 2
     theme:
        - cosmo
     comments:

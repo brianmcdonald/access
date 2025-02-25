@@ -1,15 +1,25 @@
 project:
   type: manuscript
-  output-dir: 'outputs/'
+  output-dir: '../docs/'
+  render:
+    - index.qmd
+
 
 manuscript:
   article: index.qmd
+  # resources:
+  #   - '../data/external/healthsites.geojson'
+  # notebooks:
+      # - notebook: ../notebooks/processing.ipynb
+      #   title: Data Processing
+      # - notebook: ../notebooks/vis.ipynb
+      #   title: Visualization
 
 format:
   html:
     toc: true
     theme:
-            - default
+       - cosmo
     comments:
       hypothesis: false
     # title-block-banner: '#0035a0'

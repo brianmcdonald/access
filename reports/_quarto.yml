@@ -1,0 +1,40 @@
+project:
+  type: manuscript
+  output-dir: 'outputs/'
+
+manuscript:
+  article: index.qmd
+
+format:
+  html:
+    toc: true
+    theme:
+            - default
+    comments:
+      hypothesis: false
+    # title-block-banner: '#0035a0'
+    # output-file: new
+    lightbox: true
+    embed-resources: true
+    number-sections: true
+    fig-cap-location: margin
+  typst: default
+  # epub: default
+  # ipynb: default
+  # revealjs: 
+  #   output-file: presentation.html
+  # revealjs: default
+
+format-links:
+  - html
+  - format: typst
+    text: PDF
+    icon: file-pdf
+  # epub: default
+
+# other-links:
+#       - text: IOM
+#         href: https://iom.int/
+
+
+

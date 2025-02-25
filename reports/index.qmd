@@ -1,23 +1,23 @@
 ---
 title: 'Access to Health Facilities from IDP Sites'
-author: 'Brian Mc Donald'
-subtitle: 'Using computational approaches to improve estimations of travel times from IDP sites to health facilities'
+authors:
+  - name: Brian Mc Donald
+    # affiliation: International Organization for Migration
+    roles: writing
+    corresponding: true
+    email: 'brian@brian.mcdonald.me'
+subtitle: 'Using computational approaches to improve estimations of travel times from IDP sites to health facilities.'
 date: '15-Feb-2025'
+code-links: repo
 abstract: 'This paper explores the use of computational approaches to estimate travel times from Internally Displaced Persons (IDP) sites to health facilities, using Mozambique as a case study. By comparing these computational estimates with key-informant data, we aim to validate and improve data collection processes. The study identifies priority locations for further investigation of barriers to access and proposes a tool to enhance data quality and provide analytical insights for humanitarian actors. The findings highlight the potential of computational methods to complement traditional survey approaches and inform humanitarian decision-making and planning.'
-# doi: 'test'
-title-block-banner: '#0035a0'
-output-file: index
-output-dir: '../docs'
-lightbox: true
-embed-resources: true
-number-sections: false
-fig-cap-location: margin
-
-format:
-    html:
-        toc: true
-        theme:
-            - default
+# bibliography: references.bib
+keywords:
+  - Displacement
+  - Access
+license: "CC BY"
+copyright: 
+  holder: Brian Mc Donald
+  year: 2025
 ---
 
 ::: {.callout-caution}
@@ -73,14 +73,14 @@ Mandruzi IDP site is situated on the south-west edge of Dondo, a small town 35 k
 
 According to the data from OSM, there are 5 health facilities in the Dondo area: Centro de Saude de Macharote, Centre de Saude de Dondo, Centro de Saude de Lusalite, Centro de Saude de Nhaimanga and Centro de Saude de Canhandula.
 
-![The closest health facility to Mandruzi is Centro de Saude de Dondo](../notebooks/figures/moz-static-focus.svg){#fig-static fig-align="left" width=100%}
+![The closest health facility to Mandruzi is Centro de Saude de Dondo](figures/moz-static-focus.svg){#fig-static fig-align="left" width=100%}
 
 Using OSMNX, we calculate that the closest health facility to Mandruzi is Centro de Saude de Dondo, 4,049 metres distance or an estimated 49 minutes walk north of the site. From the map, we see that in the case of Mandruzi, it is a similar distance, albeit slightly further to both Macharote and Lusalite.
 
 
 ::: {#fig-dynamic}
 
-<iframe width=100% height=600px src="../notebooks/figures/moz-dynamic-mandruzi.html"></iframe>
+<iframe width=100% height=600px src="figures/moz-dynamic-mandruzi.html"></iframe>
 Mandruzi is approx. 4km (49mins walk) to Centro de Saude de Dondo *(browse and measure the route in the interactive map)*
 
 :::
@@ -90,7 +90,7 @@ Expanding this approach to all IDP sites, we can see in the map below, all IDP s
 
 ::: {#fig-dynamic2}
 
-<iframe width=100% height=600px src="../notebooks/figures/moz-dynamic-all.html"></iframe>
+<iframe width=100% height=600px src="figures/moz-dynamic-all.html"></iframe>
 Browse all IDP sites, health facilities and routes to the nearest health facility
 
 :::
@@ -99,19 +99,19 @@ Browse all IDP sites, health facilities and routes to the nearest health facilit
 
 The following chart shows the distribution of computed travel times from all 80 IDP sites, in segments of 15 minutes.
 
-![The median travel time to a health facility is 128 minutes](../notebooks/figures/moz-static-hist-computed.svg){#fig-hist-computed fig-align="left" width=100%}
+![The median travel time to a health facility is 128 minutes](figures/moz-static-hist-computed.svg){#fig-hist-computed fig-align="left" width=100%}
 
 The following chart shows the distribution of travel time answers from the key informant responses. The segments in this case are the 4 response options available for the question .
 
 
-![KI responses were limited to four time periods](../notebooks/figures/moz-static-hist-ki.svg){#fig-hist-ki fig-align="left" width=100%}
+![KI responses were limited to four time periods](figures/moz-static-hist-ki.svg){#fig-hist-ki fig-align="left" width=100%}
 
 ### Comparison against KI responses
 
 
 Only 34 (43%) of the 80 sites had computed travel times that matched the ranges provided by the key informants.
 
-![Comparing KI responses to computed times](../notebooks/figures/moz-static-bar-comparison.svg){#fig-bar-comparison fig-align="left" width=100%}
+![Comparing KI responses to computed times](figures/moz-static-bar-comparison.svg){#fig-bar-comparison fig-align="left" width=100%}
 
 ## Patterns of variance
 
@@ -129,7 +129,7 @@ Other access factors, not related to travel time can also play a significant rol
 
 ::: {#fig-dynamic}
 
-<iframe width=100% height=600px src="../notebooks/figures/moz-dynamic-match.html"></iframe>
+<iframe width=100% height=600px src="figures/moz-dynamic-match.html"></iframe>
 There are clusters of sites near Quilimane and west of Guara-Guara that are mostly mismatched
 
 :::

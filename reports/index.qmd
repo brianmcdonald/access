@@ -2,12 +2,13 @@
 title: 'Access to Health Facilities from IDP Sites'
 authors:
   - name: Brian Mc Donald
-    # affiliation: International Organization for Migration
+    affiliation: International Organization for Migration
     roles: writing
     corresponding: true
     email: 'brian@brian.mcdonald.me'
 subtitle: 'Using computational approaches to improve estimations of travel times from IDP sites to health facilities.'
-date: '15-Feb-2025'
+date: '10-Feb-2025'
+date-modified:  '14-Feb-2025'
 code-links: repo
 abstract: 'This paper explores the use of computational approaches to estimate travel times from Internally Displaced Persons (IDP) sites to health facilities, using Mozambique as a case study. By comparing these computational estimates with key-informant data, we aim to validate and improve data collection processes. The study identifies priority locations for further investigation of barriers to access and proposes a tool to enhance data quality and provide analytical insights for humanitarian actors. The findings highlight the potential of computational methods to complement traditional survey approaches and inform humanitarian decision-making and planning.'
 # bibliography: references.bib

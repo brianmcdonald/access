@@ -12,7 +12,7 @@ data/raw/
 # also added cache     
 notebooks/cache/
 *.code-workspace
-.vscode
+.vscode/
 
 
 # Byte-compiled / optimized / DLL files
